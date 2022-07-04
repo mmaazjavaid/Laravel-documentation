@@ -15,9 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function(){
-            info('logged something');
-        })->everyMinute();
+        $schedule->command('run:Maaz')->everyMinute()->withoutOverlapping();
     }
 
     /**
