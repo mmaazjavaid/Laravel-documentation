@@ -15,7 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('run:Maaz')->everyMinute()->withoutOverlapping();
+        $schedule->command('run:Maaz')->everyMinute();
+        $schedule->call(new DeleteAllUsers)->everyMinute();
     }
 
     /**
@@ -28,5 +29,12 @@ class Kernel extends ConsoleKernel
         $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
+    }
+}
+class DeleteAllUsers{
+    public function __invoke()
+    {
+        sleep(2);
+        info('invoked_the_classs');
     }
 }

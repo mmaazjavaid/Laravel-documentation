@@ -38,8 +38,6 @@ class MaazDonCommand extends Command
     public function handle()
     {
         info("Maaz is a php expert");
-        sleep(65);
-        info("Maaz is a Laravel Expert");
         return 0;
     }
 }
